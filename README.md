@@ -24,3 +24,16 @@ OPTIONS:
 ARGS:
     <image>    Image file path
 ```
+
+## Output
+
+After generating and uploading all the emojis to Slack the binary will output your new fancy emoji grid so you can just copy and paste it on Slack:
+
+```
+:coffee-battery_00_00::coffee-battery_01_00::coffee-battery_02_00::coffee-battery_03_00::coffee-battery_04_00:
+:coffee-battery_00_01::coffee-battery_01_01::coffee-battery_02_01::coffee-battery_03_01::coffee-battery_04_01:
+:coffee-battery_00_02::coffee-battery_01_02::coffee-battery_02_02::coffee-battery_03_02::coffee-battery_04_02:
+:coffee-battery_00_03::coffee-battery_01_03::coffee-battery_02_03::coffee-battery_03_03::coffee-battery_04_03:
+:coffee-battery_00_04::coffee-battery_01_04::coffee-battery_02_04::coffee-battery_03_04::coffee-battery_04_04:
+```
+
