@@ -5,7 +5,6 @@ use iterator::PartsIterator;
 use reqwest::{multipart::Form, Client as ReqwestClient};
 use std::path::PathBuf;
 
-const SLACK_DOMAIN: &'static str = "https://shopify.slack.com/api/emoji.add";
 const GRID_SIZE: u32 = 640;
 const GRID_ITEM_SIZE: u32 = 128;
 const TOTAL_ROWS: u32 = GRID_SIZE / GRID_ITEM_SIZE;
@@ -62,7 +61,7 @@ impl Emoji {
         Ok(())
     }
 
-    pub fn upload(&self, slack_token: &str) -> Result<()> {
+    pub fn upload(&self, api_url: &str, slack_token: &str) -> Result<()> {
         for part in &self.parts {
             let form = Form::new()
                 .text("token", slack_token.to_owned())
@@ -70,10 +69,7 @@ impl Emoji {
                 .text("mode", "data")
                 .file("image", &part.image)?;
 
-            let response = ReqwestClient::new()
-                .post(SLACK_DOMAIN)
-                .multipart(form)
-                .send()?;
+            let response = ReqwestClient::new().post(api_url).multipart(form).send()?;
 
             if !response.status().is_success() {
                 println!(

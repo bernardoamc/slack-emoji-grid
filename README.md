@@ -10,15 +10,16 @@ Create a grid of emojis from an image and upload them to Slack
 Convert your images to a grid of emojis
 
 USAGE:
-    slack-emoji-grid <image> --name <name> -t <token>
+    slack-emoji-grid <image> --api_url <api_url> --name <name> --token <token>
 
 FLAGS:
     -h, --help       Prints help information
     -V, --version    Prints version information
 
 OPTIONS:
-    -n, --name <name>    Emoji name on Slack
-    -t <token>           Slack token in order to access the emoji API
+    -a, --api_url <api_url>    Slack emoji add API, example: "https://<yourcompany>.slack.com/api/emoji.add"
+    -n, --name <name>          Emoji name on Slack
+    -t, --token <token>        Slack token in order to access the emoji API
 
 ARGS:
     <image>    Image file path
