@@ -35,6 +35,7 @@ fn main() -> Result<()> {
     emoji.generate_parts()?;
     emoji.upload(&opt.api_url, &opt.token)?;
     emoji.print();
+    emoji.cleanup()?;
 
     Ok(())
 }

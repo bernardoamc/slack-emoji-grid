@@ -90,4 +90,11 @@ impl Emoji {
             }
         }
     }
+
+    pub fn cleanup(&self) -> Result<()> {
+        for part in &self.parts {
+            std::fs::remove_file(&part.image)?
+        }
+        Ok(())
+    }
 }
